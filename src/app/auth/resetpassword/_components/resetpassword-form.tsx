@@ -15,7 +15,7 @@ export default function Resetpasswordform() {
 
   const form = useForm<UseResetPassword>({
     defaultValues: {
-      email: "",
+      email: "", // Not allowed
       newPassword: "",
     },
     resolver: zodResolver(ResetPassword),
@@ -31,14 +31,9 @@ export default function Resetpasswordform() {
       {error && <p className="text-rose-700 text-xl p-2">{error.message}</p>}
 
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-2xl/9 font-bold tracking-tight text-gray-900">
-              Reset Password
-            </h2>
+            <h2 className="mt-10 text-2xl/9 font-bold tracking-tight text-gray-900">Reset Password</h2>
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -49,12 +44,7 @@ export default function Resetpasswordform() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="Email"
-                      {...field}
-                      placeholder="Email"
-                      autoComplete="email"
-                    />
+                    <Input type="Email" {...field} placeholder="Email" autoComplete="email" />
                   </FormControl>
                 </FormItem>
               )}
@@ -67,21 +57,14 @@ export default function Resetpasswordform() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="password"
-                      {...field}
-                      placeholder="newPassword"
-                      autoComplete="password"
-                    />
+                    <Input type="password" {...field} placeholder="newPassword" autoComplete="password" />
                   </FormControl>
                 </FormItem>
               )}
             />
 
             {/* variant="link" */}
-            <Button type="submit">
-              {isPending ? "Loding...." : "ResetPassword"}
-            </Button>
+            <Button type="submit">{isPending ? "Loding...." : "ResetPassword"}</Button>
             <LoginIcon />
           </div>
         </form>

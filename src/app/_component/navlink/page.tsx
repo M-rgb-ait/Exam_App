@@ -15,12 +15,12 @@ export default function Navlink() {
   const navigationlinks = [
     {
       title: "Dashboard",
-      href: "/route/dashboard",
+      href: "/dashboard",
       icon: icondash,
     },
     {
       title: "Quiz History",
-      href: "/route/question",
+      href: "/dashboard/question",
       icon: iconquiz,
     },
   ];
@@ -39,8 +39,7 @@ export default function Navlink() {
                   pathname === link.href
                     ? "active border-x border p-1 bg-blue-600 rounded-lg text-white font-normal"
                     : "text-xl font-semibold text-[#696F79]"
-                }
-              >
+                }>
                 {link.title}
               </Link>
             </div>

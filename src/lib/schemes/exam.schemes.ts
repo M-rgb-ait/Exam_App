@@ -11,6 +11,7 @@ export const ExamSchema = z.object({
 });
 export type AnswerFields = z.infer<typeof ExamSchema>;
 
+// Why is it named resold?
 export const resoldSchema = z.object({
   answers: z.array(
     z.object({

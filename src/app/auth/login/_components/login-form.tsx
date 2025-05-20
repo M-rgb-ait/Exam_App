@@ -2,13 +2,7 @@
 
 // Chat cn
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -61,14 +55,9 @@ export default function Singinform() {
       {error && <p className="text-rose-700 text-xl p-2">{error.message}</p>}
 
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-2xl/9 font-bold tracking-tight text-gray-900">
-              Sign in
-            </h2>
+            <h2 className="mt-10 text-2xl/9 font-bold tracking-tight text-gray-900">Sign in</h2>
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -79,12 +68,7 @@ export default function Singinform() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="Email"
-                      {...field}
-                      placeholder="Email"
-                      autoComplete="email"
-                    />
+                    <Input type="Email" {...field} placeholder="Email" autoComplete="email" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -98,37 +82,20 @@ export default function Singinform() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="password"
-                      {...field}
-                      placeholder="password"
-                      autoComplete="password"
-                    />
+                    <Input type="password" {...field} placeholder="password" autoComplete="password" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="text-sm flex items-center justify-between">
-              <Link
-                href="/auth/changepassword"
-                className="font-semibold text-indigo-600 hover:text-indigo-500 flex justify-end"
-              >
-                Change password
-              </Link>
-              <Link
-                href="/auth/forgetpassword"
-                className="font-semibold text-indigo-600 hover:text-indigo-500 flex justify-end"
-              >
+            <div className="text-sm flex items-center justify-end">
+              <Link href="/auth/forgetpassword" className="font-semibold text-indigo-600 hover:text-indigo-500 flex justify-end">
                 Forget password?
               </Link>
             </div>
             {/* variant="link" */}
-            <Button
-              type="submit"
-              disabled={form.formState.isSubmitted && !form.formState.isValid}
-            >
+            <Button type="submit" disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}>
               {isPending ? "Loding....." : "sigin in"}
             </Button>
             {/* <Link href={'/auth/verifycode'} >Verifycode</Link> */}

@@ -10,7 +10,6 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   providers: [
-    // google
     Credentials({
       name: "Credentials",
       credentials: {
@@ -18,8 +17,6 @@ export const authOptions: NextAuthOptions = {
         password: {},
       },
       authorize: async (credentials) => {
-        console.log("credentials", credentials);
-
         const respones = await fetch(`${process.env.API}/auth/signin`, {
           method: "POST",
           body: JSON.stringify({
@@ -30,7 +27,7 @@ export const authOptions: NextAuthOptions = {
             ...JSON_HEADER,
           },
         });
-        // APIResponse <LoginResponse>
+
         const payload: APIResponse<LoginResponse> = await respones.json();
         console.log("====================================");
         console.log("payload", payload);
@@ -39,7 +36,7 @@ export const authOptions: NextAuthOptions = {
         if ("code" in payload) {
           throw new Error(payload.message);
         } //becuse error inegsest in return backend
-        // return null;
+
         return {
           id: payload.user._id,
           token: payload.token,
@@ -47,17 +44,20 @@ export const authOptions: NextAuthOptions = {
         };
       },
     }),
+
+    // Google
     GoogleProvider({
       clientId: process.env.GOOGEL_CLIENT_ID!,
       clientSecret: process.env.GOOGEL_CLIENT_SECRET!,
     }),
 
-    // github
+    // Github
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
-    // twitter
+
+    // Twitter
     GitHubProvider({
       clientId: process.env.TWITTER_CLIENT_ID!,
       clientSecret: process.env.TWITTER_CLIENT_SECRET!,
@@ -83,10 +83,12 @@ export const authOptions: NextAuthOptions = {
         token.token = user.token;
         token.user = user.user;
       }
+
       return token;
     },
     session: ({ session, token }) => {
       session.user = token.user;
+
       return session;
     },
   },

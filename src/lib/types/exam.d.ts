@@ -15,14 +15,14 @@ declare type CheckResponse = {
     Question: string;
     inCorrectAnswer: string;
     correctAnswer: string;
-    // answers: {};
+    // answers: {}; // Type for answers is missing
   }[];
   correctQuestions: {
     QID: string;
     Question: string;
     inCorrectAnswer: string;
     correctAnswer: string;
-    // answers: {};
+    // answers: {}; // Type for answers is missing
   }[];
 };
 declare type CheckResponseSubject = {
