@@ -6,9 +6,8 @@ export async function getExams(searchParams: string) {
       ...(await getAuthHeader()),
     },
   });
-  //: APIResponse<{ questions: Question[] }>
-  const payload: APIResponse<{ subject: CheckResponseSubject[] }> =
-    await response.json();
+
+  const payload: APIResponse<{ subject: CheckResponseSubject[] }> = await response.json();
 
   return payload;
 }

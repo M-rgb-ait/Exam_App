@@ -18,7 +18,7 @@ export default function useCheckLogin() {
         // callbackUrl: decodeURIComponent(searchParams.get("callbackUrl") || "/"),
       });
 
-      // if (response?.error) throw new Error(response.error);
+      if (response?.error) throw new Error(response.error);
 
       return response;
       // };

@@ -14,22 +14,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div className="container">
-          <div className="min-h-screen flex justify-center items-center gap-7">
-            <ImgForm />
+    <div className="container">
+      <div className="min-h-screen flex justify-center items-center gap-7">
+        <ImgForm />
 
-            <div>
-              <LinkForm />
-              <div>
-                {children}
-                <Toaster />
-              </div>
-            </div>
+        <div>
+          <LinkForm />
+          <div>
+            {children}
+            <Toaster />
           </div>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }

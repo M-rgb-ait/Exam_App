@@ -17,7 +17,7 @@ export default async function SubjectsApi() {
     },
   });
 
-  const payload = await respones.json();
+  const payload = await respones.json(); // No type
   // console.log("SubjectsApi", payload);
   const subjects = payload.subjects;
   if (!respones.status) {
@@ -27,27 +27,18 @@ export default async function SubjectsApi() {
     <div className=" container mx-auto p-5 bg-white">
       <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 mb-9">
         {subjects?.map((subject) => (
-          <div key={subject._id}>
-            <Link href={`exams/${subject._id}`}>
-              <div className="relative">
-                <img
-                  src={subject.icon}
-                  className=" w-full h-full"
-                  alt={subject.name}
-                />
-                <div
-                  className="bg-[#1935CA66] w-[90%] p-5 rounded-md top-[50%] left-[50%] 
+          <Link key={subject._id} href={`/dashboard/exams/${subject._id}`}>
+            <div className="relative">
+              <img src={subject.icon} className=" w-full h-full" alt={subject.name} />
+              <div
+                className="bg-[#1935CA66] w-[90%] p-5 rounded-md top-[50%] left-[50%] 
           transform -translate-x-1/2 -translate-y-1/5
-          absolute"
-                >
-                  <h2 className="font-bold text-base">{subject.name}</h2>
-                  <p className="font-medium text-sm">
-                    Voluptatem aut ut dignissimos blanditiis
-                  </p>
-                </div>
+          absolute">
+                <h2 className="font-bold text-base">{subject.name}</h2>
+                <p className="font-medium text-sm">Voluptatem aut ut dignissimos blanditiis</p>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

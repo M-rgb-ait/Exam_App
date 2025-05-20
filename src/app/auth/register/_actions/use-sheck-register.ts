@@ -22,7 +22,7 @@ export default function useCheckRegister() {
       setTimeout(() => {
         router.push("/auth/login");
         toast.success("SusseccRegister");
-      }, 3000);
+      }, 3000); // No need
       //      toast.error('error', {duration: 3000, position: 'top-right'});
     },
     // onError: (error) => {

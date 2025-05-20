@@ -5,7 +5,7 @@ import HomePage from "@/app/_component/homepage/page";
 
 export default function dashboard() {
   return (
-    <div className="bg-[#FBF9F9]">
+    <div className="bg-custom-gray-50">
       <HomePage />
 
       <div className="p-5 mb-5">

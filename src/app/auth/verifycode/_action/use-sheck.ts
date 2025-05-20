@@ -19,9 +19,10 @@ export default function useCheckCode() {
     onSuccess: (data) => {
       console.log(data);
       // Redirect to the the resetpassword page upon successful VerifyCode
+      // No need
       setTimeout(() => {
         router.push("/auth/resetpassword");
-        toast.success("SusseccVerifyCode");
+        toast.success("SusseccVerifyCode"); // No need
       }, 1500);
     },
     // onError: (error) => {
