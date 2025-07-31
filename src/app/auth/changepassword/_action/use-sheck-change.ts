@@ -21,9 +21,6 @@ export default function useCheckChange() {
         toast.success("SusseccChangePassword");
       }, 1500);
     },
-    // onError: (error) => {
-    //   console.log(error.message);
-    // },
   });
 
   return { isPending, error, CheckChange: mutate };

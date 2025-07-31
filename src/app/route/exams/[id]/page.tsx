@@ -6,6 +6,11 @@ export default async function page() {
   return (
     <div>
       <div>{respons.message}</div>
+      <div>
+        {respons.exams.map((exam: any) => (
+          <div key={exam._id}>{exam.title}</div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -78,3 +78,20 @@ export const ResetPassword = z.object({
     .regex(/^[A-Za-z]+@[0-9]+$/, "1uppercase and 4lowercase and like@ 3number"), //9number only
 });
 export type UseResetPassword = z.infer<typeof ResetPassword>;
+
+//ForgotPasswordSchema
+
+export const PhoneSchema = z.object({
+  phone: z
+    .string({ required_error: "email-required" })
+    .email({ message: "email-invalid" }),
+});
+export type UsePhoneSchema = z.infer<typeof PhoneSchema>;
+
+export const schema = z.object({
+  gender: z.enum(["male", "female"], {
+    required_error: "النوع مطلوب",
+    invalid_type_error: "النوع غير صالح",
+  }),
+});
+export type UsePhone = z.infer<typeof schema>;

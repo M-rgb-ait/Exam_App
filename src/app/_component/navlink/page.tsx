@@ -8,7 +8,8 @@ import iconlogin from "../../../../public/assets/icons/Vector (3).png";
 import Link from "next/link";
 import Logout from "@/app/auth/login/_components/logout";
 import { usePathname } from "next/navigation";
-// import DeleteAcunte from "@/app/auth/deleteacunte/deleteacunte";
+import DeletemyAcunte from "@/app/auth/delete my account/page";
+import { cn } from "@/lib/utils/cn";
 
 export default function Navlink() {
   const pathname = usePathname();
@@ -23,6 +24,26 @@ export default function Navlink() {
       href: "/route/question",
       icon: iconquiz,
     },
+    {
+      title: "categories",
+      href: "/route/categories",
+      icon: iconquiz,
+    },
+    {
+      title: "AllQuizes",
+      href: "/route/allquizes",
+      icon: iconquiz,
+    },
+    {
+      title: "products",
+      href: "/route/products",
+      icon: iconquiz,
+    },
+    {
+      title: "Change password",
+      href: "/auth/changepassword",
+      icon: iconquiz,
+    },
   ];
 
   return (
@@ -35,11 +56,11 @@ export default function Navlink() {
               <Image src={link.icon} alt="icon" />
               <Link
                 href={link.href}
-                className={
+                className={cn(
                   pathname === link.href
                     ? "active border-x border p-1 bg-blue-600 rounded-lg text-white font-normal"
                     : "text-xl font-semibold text-[#696F79]"
-                }
+                )}
               >
                 {link.title}
               </Link>
@@ -50,13 +71,12 @@ export default function Navlink() {
           <Image src={iconlogin} alt="icon" />
           <Logout />
         </div>
+        <div className="flex items-center flex-col mt-3">
+          <Link href="/auth/login">
+            <DeletemyAcunte />
+          </Link>
+        </div>
       </ul>
-      {/* <li
-        onClick={() => DeleteAcunte()}
-        className="text-xl font-semibold text-[#696F79]"
-      >
-        <Link href="/auth/login">DeleteAcunte</Link>
-      </li> */}
     </nav>
   );
 }

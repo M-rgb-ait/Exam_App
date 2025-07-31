@@ -24,14 +24,6 @@ export default function Verifycodeform() {
   const onSubmit: SubmitHandler<UseResetCode> = async (valuse) => {
     //function ResetCode
     CheckCode(valuse);
-    // if (!error) {
-    //   setTimeout(() => {
-    //     router.push("/auth/resetpassword");
-    //     toast.success("SusseccResetCode");
-    //   }, 1500);
-    // } else {
-    //   router.push("/auth/verifycode");
-    // }
   };
   return (
     <>
@@ -75,8 +67,9 @@ export default function Verifycodeform() {
                 Resend
               </Link>
             </div>
-            {/* variant="link" */}
-            <Button type="submit">{isPending ? "Loding...." : "Verify"}</Button>
+            <Button className="w-full mt-3 bg-blue-700" type="submit">
+              {isPending ? "Loding...." : "Verify"}
+            </Button>
 
             <LoginIcon />
           </div>

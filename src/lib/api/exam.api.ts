@@ -7,7 +7,7 @@ export async function getExamsApi() {
     },
   });
 
-  const payload: APIResponse<{ exams: Exam[] }> = await response.json();
+  const payload: APIResponse<{ exams: Exams[] }> = await response.json();
 
   return payload;
 }

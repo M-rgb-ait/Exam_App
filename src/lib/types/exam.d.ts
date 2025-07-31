@@ -1,4 +1,4 @@
-declare type Exam = {
+declare type Exams = {
   title: string;
   duration: number;
   subject: string;
@@ -32,5 +32,11 @@ declare type CheckResponseSubject = {
     numberOfPages: number;
     limit: number;
   };
-  exams: [];
+  subjects: [
+    {
+      _id: string;
+      name: string;
+      icon: string;
+    },
+  ];
 };

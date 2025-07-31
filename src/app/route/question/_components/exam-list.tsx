@@ -19,7 +19,7 @@ export default async function ExamsList({ searchParams }: ExamsListProps) {
 
       {/* Exams */}
       {payload?.exams && (
-        <ul className="flex flex-col gap-5 w-[80vw]">
+        <ul className="flex flex-col gap-5 w-full">
           {payload.exams.map((exam) => (
             <li
               key={exam._id}

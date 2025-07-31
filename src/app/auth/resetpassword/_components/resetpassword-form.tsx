@@ -79,7 +79,7 @@ export default function Resetpasswordform() {
             />
 
             {/* variant="link" */}
-            <Button type="submit">
+            <Button type="submit" className="w-full mt-3 bg-blue-700">
               {isPending ? "Loding...." : "ResetPassword"}
             </Button>
             <LoginIcon />

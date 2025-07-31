@@ -1,8 +1,8 @@
 "use server";
 
+import { JSON_HEADER } from "@/lib/constants/api.constants";
 import { AnswerFields } from "@/lib/schemes/exam.schemes";
 import { getAuthHeader } from "@/lib/utils/auth-header";
-
 
 export async function checkQuestionsAction(fields: AnswerFields) {
   const response = await fetch(`${process.env.API}/questions/check`, {
@@ -10,7 +10,8 @@ export async function checkQuestionsAction(fields: AnswerFields) {
     body: JSON.stringify(fields),
     headers: {
       ...(await getAuthHeader()),
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
   });
 

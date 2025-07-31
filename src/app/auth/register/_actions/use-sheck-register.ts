@@ -18,22 +18,11 @@ export default function useCheckRegister() {
     },
     onSuccess: (data) => {
       console.log(data);
-      // Redirect to the the login page upon successful registration
       setTimeout(() => {
         router.push("/auth/login");
         toast.success("SusseccRegister");
       }, 3000);
-      //      toast.error('error', {duration: 3000, position: 'top-right'});
     },
-    // onError: (error) => {
-    //   console.log(error.message);
-    //   toast(`${error.message}`, {
-    //     action: {
-    //       label: "Siginuperror",
-    //       onClick: () => console.log("Siginuperror"),
-    //     },
-    //   });
-    // },
   });
 
   return { isPending, error, CheckRegister: mutate };

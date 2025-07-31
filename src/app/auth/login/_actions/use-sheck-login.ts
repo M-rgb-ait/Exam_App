@@ -7,18 +7,18 @@ import { toast } from "sonner";
 export default function useCheckLogin() {
   //useMutation
   const { isPending, error, mutate } = useMutation({
-    mutationFn: async ({ email, password }: UseLoginSchema) => {
-      console.log("email", email);
-      console.log("password", password);
+    mutationFn: async (LoginSchema: UseLoginSchema) => {
+      // console.log("email", email);
+      // console.log("password", password);
 
       const response = await signIn("credentials", {
-        email,
-        password,
+        email: LoginSchema.email,
+        password: LoginSchema.password,
         redirect: false,
         // callbackUrl: decodeURIComponent(searchParams.get("callbackUrl") || "/"),
       });
-
-      // if (response?.error) throw new Error(response.error);
+      //next auth
+      if (response?.error) throw new Error(response.error);
 
       return response;
       // };

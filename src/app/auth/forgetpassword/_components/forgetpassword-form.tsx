@@ -71,7 +71,7 @@ export default function Forgetform() {
               </Link>
             </div>
             {/* variant="link" */}
-            <Button type="submit">
+            <Button className="w-full mt-3 bg-blue-700" type="submit">
               {isPending ? "Loding...." : "Send Email"}
             </Button>
 

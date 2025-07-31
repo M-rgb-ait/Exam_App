@@ -18,13 +18,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 const authPages = new Set([
   "/auth/login",
-  "/auth/changepassword",
+  // "/auth/changepassword",
   "/auth/register",
   "/auth/forgetpassword",
   "/auth/verifycode",
   "/auth/resetpassword",
 ]);
-const publicPages = new Set(["/route/dashboard", ...Array.from(authPages)]);
+const publicPages = new Set([
+  "/route/dashboard",
+  "/auth/changepassword",
+  ...Array.from(authPages),
+]);
 
 export default async function middleware(req: NextRequest) {
   const token = await getToken({ req });

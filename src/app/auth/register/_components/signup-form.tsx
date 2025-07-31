@@ -2,6 +2,12 @@
 
 // Chat cn
 import { Button } from "@/components/ui/button";
+// import {
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 import {
   Form,
   FormControl,
@@ -16,6 +22,8 @@ import Link from "next/link";
 import { RegisterSchema, UseRegisterSchema } from "@/lib/schemes/auth.scheme";
 import LoginIcon from "@/app/_component/loginicon/page";
 import useCheckRegister from "../_actions/use-sheck-register";
+// import Hero from "./phone-input";
+// import { Select } from "@/components/ui/select";
 
 export default function Registerform() {
   const { CheckRegister, isPending, error } = useCheckRegister();
@@ -187,6 +195,19 @@ export default function Registerform() {
               )}
             />
 
+            {/* 
+            <Select>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">male</SelectItem>
+                <SelectItem value="dark">famel</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Hero /> */}
+
             <div className="text-sm flex justify-center items-center">
               <p className="text-[#313131]">Already have an account?</p>
               <Link
@@ -199,6 +220,7 @@ export default function Registerform() {
             {/* variant="link" onClick={() => router.push("/auth/login") } */}
             <Button
               type="submit"
+              className="w-full mt-3 bg-blue-700"
               disabled={form.formState.isSubmitted && !form.formState.isValid}
             >
               {!isPending ? "Create Account" : "Loding...."}

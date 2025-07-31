@@ -24,9 +24,6 @@ export default function useCheckReset() {
         toast.success("SusseccResetPassword");
       }, 1500);
     },
-    // onError: (error) => {
-    //   console.log(error.message);
-    // },
   });
 
   return { isPending, error, CheckReset: mutate };

@@ -24,12 +24,6 @@ export default function useCheckCode() {
         toast.success("SusseccVerifyCode");
       }, 1500);
     },
-    // onError: (error) => {
-    //   console.log(error.message);
-    //   setTimeout(() => {
-    //     window.location.href = "/auth/verifycode";
-    //   }, 1500);
-    // },
   });
 
   return { isPending, error, CheckCode: mutate };

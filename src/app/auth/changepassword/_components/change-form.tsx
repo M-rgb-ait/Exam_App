@@ -32,12 +32,6 @@ export default function ChangePasswordForm() {
 
   const onSubmit: SubmitHandler<UseChangePasswordScheme> = async (values) => {
     CheckChange(values);
-    // if (!error) {
-    //   setTimeout(() => {
-    //     router.push("/auth/resetpassword");
-    //     toast.success("SusseccChangePassword");
-    //   }, 1500);
-    // }
   };
   return (
     <>
@@ -110,7 +104,7 @@ export default function ChangePasswordForm() {
             />
 
             {/* variant="link" */}
-            <Button type="submit">
+            <Button className="w-full mt-3 bg-blue-700" type="submit">
               {isPending ? "Loding...." : "Change password"}
             </Button>
 

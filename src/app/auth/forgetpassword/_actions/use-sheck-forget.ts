@@ -24,9 +24,6 @@ export default function useCheckForget() {
         toast.success("SusseccForgotPassword");
       }, 1500);
     },
-    // onError: (error) => {
-    //   console.log(error.message);
-    // },
   });
 
   return { isPending, error, CheckForget: mutate };
